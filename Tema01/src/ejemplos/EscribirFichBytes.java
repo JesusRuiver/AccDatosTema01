@@ -3,7 +3,7 @@ package ejemplos;
 import java.io.*;
 public class EscribirFichBytes {
   public static void main(String[] args) throws IOException {   
-   File fichero = new File("C:\\EJERCICIOS\\UNI1\\FichBytes.dat");//declara fichero
+   File fichero = new File("FichBytes.dat");//declara fichero
    //crea flujo de salida hacia el fichero  
    FileOutputStream fileout = new FileOutputStream(fichero);   
    //crea flujo de entrada
