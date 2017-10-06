@@ -42,8 +42,8 @@ public class VisualizaFichero {
 					char caracter = (char) linea;
 
 					System.out.print(caracter);
-					leerEntrada.close();
-				}
+					
+				}leerEntrada.close();
 			} else {
 				System.out.println("Tu te lo pierdes");
 			}
