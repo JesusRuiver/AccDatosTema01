@@ -1,35 +1,33 @@
 /**
  * 
  */
-package ejerciciocopiafichero;
+package ejercicioleecopiamayusculas;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.StringTokenizer;
 
 /**
- * @author Jesús Manuel Ruiz Verdejo
+ * @author usuario
  *
  */
-public class CopiaFichero {
+public class LeeCopiaMayusculas {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+		
 
 		String original = "Origen.txt";
-		String copia = "copia.txt";
+		String copia = "CopiaMayusculas.txt";
 
 		try {
 
 			FileReader fr = new FileReader(original);
 			BufferedReader br = new BufferedReader(fr);
 
-			String textoOrigen = br.readLine();
+			String textoOrigen = br.readLine().toUpperCase(); //Leemos y convertimos en mayusculas
 
 			FileWriter fw = new FileWriter(copia);
 
@@ -43,6 +41,7 @@ public class CopiaFichero {
 		} catch (Exception e) {
 			System.out.println("ERROR---" + e.toString());
 		}
+
 
 	}
 
