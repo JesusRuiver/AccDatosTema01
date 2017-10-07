@@ -23,7 +23,7 @@ public class LotesCafe {
 
 		String listaCafe;
 
-		BufferedWriter fichero = new BufferedWriter(new FileWriter("MisCafes.txt"));
+		BufferedWriter fichero = new BufferedWriter(new FileWriter("MisCafes.txt",true));//Incorportamos al contructor true para poder actualizar el archivo sin machacar el anterior
 
 		System.out.print("Introduca Nombre Cafe: ");
 		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
