@@ -41,7 +41,7 @@ public class DepartDatos {
 
 		try {
 
-			File ficheroDep = new File("Departamentos.dat");
+			File ficheroDep = new File("DepartamentosDatos.dat");
 			FileOutputStream flujoDatos = new FileOutputStream(ficheroDep);
 			DataOutputStream escribeDatos = new DataOutputStream(flujoDatos);
 
