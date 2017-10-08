@@ -27,10 +27,6 @@ public class DepartDatos {
 		 * son: Número Departamento: int, Nombre: String y Localidad: String.
 		 */
 
-		int numDep;
-		String nombre;
-		String localidad;
-
 		String[] nombres = { "Contabilidad", "Ventas", "Logística", "RRHH", "Informática", "Exportación", "Calidad",
 				"Lega", "Comunicación", "Diseño" };
 

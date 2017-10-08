@@ -6,6 +6,7 @@ package po0102;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
@@ -17,12 +18,13 @@ public class DepartObjetos {
 
 	/**
 	 * @param args
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
-		
-		Departamento departamento;
-		
+	public static void main(String[] args) {
+
+		Departamento departamento; // Declaramos una variable de tipo
+									// Departamento
+
 		String[] nombres = { "Contabilidad", "Ventas", "Logística", "RRHH", "Informática", "Exportación", "Calidad",
 				"Lega", "Comunicación", "Diseño" };
 
@@ -31,20 +33,27 @@ public class DepartObjetos {
 
 		int[] numsDeps = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-		File ficheroDep = new File("DepartamentosObjetos.dat");
-		FileOutputStream flujoDatos = new FileOutputStream(ficheroDep);
-		ObjectOutputStream escribeObjetos = new ObjectOutputStream(flujoDatos);
-		
-		for (int i = 0; i < numsDeps.length;i++){
-			departamento = new Departamento (numsDeps[i], nombres[i], localidades[i]);
-			escribeObjetos.writeObject(departamento);
-		}
+		try {
 
+			File ficheroDep = new File("DepartamentosObjetos.dat");
+			FileOutputStream flujoDatos = new FileOutputStream(ficheroDep);
+			ObjectOutputStream escribeObjetos = new ObjectOutputStream(flujoDatos);
+
+				for (int i = 0; i < numsDeps.length; i++) {
+					departamento = new Departamento(numsDeps[i], nombres[i], localidades[i]);
+					escribeObjetos.writeObject(departamento);
+				}
+
+			} catch (IOException e) {
+			e.getStackTrace();
+			}
 	}
 
 }
 
-class Departamento implements Serializable {
+class Departamento implements Serializable { // Creamos una clase Departamento
+												// para poder crear objetos de
+												// tipo Departamento
 
 	private int numDep;
 	private String nombre;
