@@ -111,7 +111,9 @@ public class LotesCafe {
 		}
 
 		System.out.println("Fin del Programa"); //Nos avisa que el programa a finalizado
+		
 		fichero.close();//Cierra el fichero
+		
 		} catch (Exception e){
 			e.getMessage();
 		}

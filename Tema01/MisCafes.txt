@@ -1,12 +1,9 @@
-Cafe tipo: Colombia
+Cafe tipo: Colomabia
 Precio Cafe: 8.95
 Lote nº: 1
 Kilos Lote: 500
-Fecha caducidad Lote: 22-10-17
+Fecha caducidad Lote: 22-10-18
 0
 Cafe tipo: Kenia
 Precio Cafe: 9
-Lote nº: 1
-Kilos Lote: 600
-Fecha caducidad Lote: 15-7-22
 0
