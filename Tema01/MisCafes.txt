@@ -1,27 +1,12 @@
 Cafe tipo: Colombia
-Precio Cafe: 8
-0
-Cafe tipo: kenia
-Precio Cafe: 9
-0
-Cafe tipo: cuchucoffe
-Precio Cafe: 20
-0
-Cafe tipo: Colombia
-Precio Cafe: 9
-0
-Cafe tipo: Kenia
-Precio Cafe: 12
+Precio Cafe: 8.95
 Lote nº: 1
 Kilos Lote: 500
-Fecha caducidad Lote: 22-12-20
+Fecha caducidad Lote: 22-10-17
 0
-Cafe tipo: Brasil
-Precio Cafe: 11
-0
-Cafe tipo: Cuchucoffe
-Precio Cafe: 15
-Lote nº: 2
-Kilos Lote: 500
-Fecha caducidad Lote: 22-8-30
+Cafe tipo: Kenia
+Precio Cafe: 9
+Lote nº: 1
+Kilos Lote: 600
+Fecha caducidad Lote: 15-7-22
 0

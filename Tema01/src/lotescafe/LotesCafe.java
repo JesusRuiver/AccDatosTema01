@@ -110,7 +110,7 @@ public class LotesCafe {
 			System.out.print("Si | No: ");
 		}
 
-		System.out.println("Fin de Programa"); //Nos avisa que el programa a finalizado
+		System.out.println("Fin del Programa"); //Nos avisa que el programa a finalizado
 		fichero.close();//Cierra el fichero
 
 	}
