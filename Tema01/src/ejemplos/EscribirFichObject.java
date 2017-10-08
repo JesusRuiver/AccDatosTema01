@@ -7,7 +7,7 @@ public class EscribirFichObject {
    
    Persona persona;//defino variable persona
    
-   File fichero = new File("C:\\EJERCICIOS\\UNI1\\FichPersona.dat");//declara el fichero
+   File fichero = new File("FichPersona.dat");//declara el fichero
    FileOutputStream fileout = new FileOutputStream(fichero,true);  //crea el flujo de salida
     //conecta el flujo de bytes al flujo de datos
    ObjectOutputStream dataOS = new ObjectOutputStream(fileout);  
@@ -23,4 +23,33 @@ public class EscribirFichObject {
    }     
    dataOS.close();  //cerrar stream de salida    
    }
+}
+
+class Persona implements Serializable {
+	private int edad;
+	private String nombre;
+	
+	public Persona(String nombre, int edad) {
+	
+		this.nombre = nombre;
+		this.edad = edad;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	
 }
