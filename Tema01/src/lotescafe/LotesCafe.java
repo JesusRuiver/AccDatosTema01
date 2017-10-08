@@ -19,10 +19,10 @@ public class LotesCafe {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		String listaCafe;
-
+		try{
 		BufferedWriter fichero = new BufferedWriter(new FileWriter("MisCafes.txt",true));//Incorporamos al contructor true para poder actualizar el archivo sin machacar el anterior
 
 		System.out.print("Introduca Nombre Cafe: ");
@@ -112,6 +112,9 @@ public class LotesCafe {
 
 		System.out.println("Fin del Programa"); //Nos avisa que el programa a finalizado
 		fichero.close();//Cierra el fichero
+		} catch (Exception e){
+			e.getMessage();
+		}
 
 	}
 
