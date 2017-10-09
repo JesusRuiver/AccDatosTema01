@@ -7,3 +7,9 @@ Fecha caducidad Lote: 22-10-18
 Cafe tipo: Kenia
 Precio Cafe: 9
 0
+Cafe tipo: Colombia
+Precio Cafe: 9
+Lote nº: 1
+Kilos Lote: 500
+Fecha caducidad Lote: 22-10-22
+0
