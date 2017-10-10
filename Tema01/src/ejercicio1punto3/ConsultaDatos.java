@@ -31,13 +31,13 @@ public class ConsultaDatos {
 		Double salario;
 		char apellido[] = new char[10], aux;
 
-		posicion = (Integer.parseInt(idEmple) - 1) * 36; // para situarnos al principio
+		posicion = (Integer.parseInt(idEmple) - 1) * 36; 
 
 		if (posicion >= file.length()) { 
 			
 			System.out.printf("ID: %d, NO EXISTE EMPLEADO...", Integer.parseInt(idEmple));
 			
-		}else {// recorro el fichero
+		}else {
 			file.seek(posicion); // nos posicionamos en posicion
 			id = file.readInt(); // obtengo id de empleado
 				
