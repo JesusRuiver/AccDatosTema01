@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
@@ -51,7 +52,11 @@ public class CreaDocumentoXML {
 
 		File fichero = new File("Persona.dat");
 		
-		///Hay que leer el fichero
+		String nombre;
+		String apellido;
+		int edad;
+		
+		
 
 		try {
 
@@ -70,7 +75,8 @@ public class CreaDocumentoXML {
 		/* Creamos el fichero XML */
 
 		DocumentBuilderFactory creadorDocumento = DocumentBuilderFactory.newInstance();
-
+		
+		
 		try {
 			DocumentBuilder creadorDoc = creadorDocumento.newDocumentBuilder();
 			DOMImplementation implementacion = creadorDoc.getDOMImplementation();
@@ -79,45 +85,57 @@ public class CreaDocumentoXML {
 
 			documento.setXmlVersion("1.0"); // Vesion XML
 
-			Element raiz = documento.createElement("persona"); // Creamos el
-																// nodo raiz
-																// "persona"
+			/// Hay que leer el fichero
 
-			documento.getDocumentElement().appendChild(raiz); // Lo pegamos a la
-																// raiz del
-																// documento
-
-			for (;;) {
+			FileInputStream flujoEntrada = new FileInputStream(fichero);
+			ObjectInputStream objetoEntrada = new ObjectInputStream(flujoEntrada);
+			
+			
+			
+				while (true) { // lectura del fichero
 				
+					
+					persona = (Persona) objetoEntrada.readObject();
+					
+					nombre = persona.getNombre();
+					apellido = persona.getApellido();
+					edad = persona.getEdad();
 				
+					
+				Element raiz = documento.createElement("persona"); // Creamos el nodo raiz "persona"
 
+				documento.getDocumentElement().appendChild(raiz); // Lo pegamos a la raiz del documento
+				
 				// Añade Nombre
 
-				crearElemento("nombre", String(nombre), raiz, documento);
+				crearElemento("nombre", nombre, raiz, documento);
 
 				// Añade Apellido
 
-				crearElemento("apellido", String(apellido), raiz, documento);
+				crearElemento("apellido", apellido, raiz, documento);
 
 				// Añade Edad
 
 				crearElemento("edad", Integer.toString(edad), raiz, documento);
 
-			} // Fin del for
+				Source codigoXML = new DOMSource(documento);
+				Result resultado = new StreamResult(new java.io.File("Personas.xml"));
+				
+				Transformer transformar = TransformerFactory.newInstance().newTransformer();
+				transformar.transform(codigoXML, resultado);
+				
+				//objetoEntrada.close(); ---->No
+				} // Fin del bucle while
+					
+		}catch(	Exception e)
+		{
 
-			Source codigoXML = new DOMSource(documento);
-			Result resultado = new StreamResult(new java.io.File("Personas.xml"));
-			Transformer transformar = TransformerFactory.newInstance().newTransformer();
-			transformar.transform(codigoXML, resultado);
-
-		} catch (Exception e) {
-
-			System.err.println("Error: " + e);
+		System.err.println("Error: " + e);
 		}
+		
+}// Fin del Main
 
-	}// Fin del Main
-
-	static void crearElemnto(String datoPersona, String valor, Element raiz, Document documento) {
+	static void crearElemento(String datoPersona, String valor, Element raiz, Document documento) {
 
 		Element elemento = documento.createElement(datoPersona);
 
