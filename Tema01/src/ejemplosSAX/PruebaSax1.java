@@ -1,4 +1,4 @@
-package ejemplos;
+package ejemplosSAX;
 import java.io.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
@@ -14,7 +14,7 @@ public class PruebaSax1 {
 	 XMLReader  procesadorXML = XMLReaderFactory.createXMLReader();
 	 GestionContenido gestor= new GestionContenido();  
 	 procesadorXML.setContentHandler(gestor);
- 	 InputSource fileXML = new InputSource("alumnos.xml");	    
+ 	 InputSource fileXML = new InputSource("Personas.xml");	    
        procesadorXML.parse(fileXML);        	      
 	}
 }//fin PruebaSax1
