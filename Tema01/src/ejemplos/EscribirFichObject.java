@@ -2,7 +2,7 @@ package ejemplos;
 
 import java.io.*;
 
-import ejemplosSAX.Persona;
+
 
 public class EscribirFichObject {
   public static void main(String[] args) throws IOException {   
