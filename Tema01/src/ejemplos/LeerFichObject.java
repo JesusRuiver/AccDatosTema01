@@ -2,6 +2,8 @@ package ejemplos;
 
 import java.io.*;
 
+import ejemplosSAX.Persona;
+
 public class LeerFichObject {
   public static void main(String[] args) throws IOException, ClassNotFoundException{   
    Persona persona;   //defino la variable persona
