@@ -2,6 +2,8 @@ package ejemplos;
 
 import java.io.*;
 
+
+
 public class EscribirFichObject {
   public static void main(String[] args) throws IOException {   
    
