@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * @author usuario
+ * @author Jesús Manuel Ruiz Verdejo
  *
  */
 public class Lote {
@@ -18,7 +18,10 @@ public class Lote {
 	private double kilos;
 	private String caducidad;
 	
-	public void introduceLote() throws IOException{
+	public void introduceLote() {
+		
+		try{
+			
 		
 		BufferedWriter fichero = new BufferedWriter(new FileWriter("MisCafes.txt",true));
 		
@@ -36,10 +39,12 @@ public class Lote {
 			fichero.write(entrada.readLine());
 			fichero.newLine();
 
-			System.out.println("Desea introducir un nuevo Lote: \n"); //Preguntamos si desea introducir un nuevo lote
+			System.out.println("Desea introducir un nuevo Lote: "); //Preguntamos si desea introducir un nuevo lote
 			System.out.print("Si | No: ");
 		}
-		
+		}catch (Exception e) {
+			e.getMessage();
+		}
 	}
 
 }

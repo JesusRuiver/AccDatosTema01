@@ -13,6 +13,7 @@ public class AplicacionCafe {
 
 	/**
 	 * @param args
+	 * @throws Exception 
 	 */
 
 	public static void main(String[] args) {
@@ -32,12 +33,12 @@ public class AplicacionCafe {
 		System.out.println("2.- Control de Inventario");
 		System.out.println("3.- Venta Café");
 		System.out.println("4.- Salir \n");
-		System.out.print("Introduzca la opción: \n");
+		System.out.print("Introduzca la opción: ");
 
 		Scanner entrada = new Scanner(System.in);
 		int seleccion = entrada.nextInt();
 
-		while (seleccion != 0 && seleccion < 4) {
+		while (seleccion != 0 && seleccion <= 4) {
 
 			switch (seleccion) {
 			case 1:
@@ -47,11 +48,31 @@ public class AplicacionCafe {
 				listadoCafe.introduceCafe();
 
 				break;
+			
+			case 2: //Recordar tratar la excepción en la clase inventario y no en la aplicación
+					
+				
+				try{
+				Inventario informe = new Inventario();
 
+				informe.controlInventario();
+				
+				break;
+				
+				} catch (Exception e) {
+					e.getMessage();
+				}
+				
 			case 3:
+				
+				break;
+				
+			case 4:
 
 				System.out.println("Fin del programa \n");
 				System.exit(0);
+				
+				break;
 
 			default:
 

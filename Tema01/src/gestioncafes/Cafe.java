@@ -8,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -22,10 +23,12 @@ public class Cafe {
 	 */
 	
 	private String nombre;
+	private ArrayList <String> nombres = new ArrayList<String>();
 	private double precio;
 	private double stock;
 	private Vector<Lote>v;
 	private Lote loteCafe = new Lote();
+	private AplicacionCafe aplicacion = new AplicacionCafe();
 	
 	public void introduceCafe() {
 
@@ -38,8 +41,10 @@ public class Cafe {
 		do {
 
 		System.out.print("Introduzca Nombre Cafe: ");
-		
-			fichero.write(entrada.readLine().toUpperCase()); //Introducimos el tipo de cafe
+			
+			
+			fichero.write(this.nombre = entrada.readLine().toUpperCase());//Introducimos el tipo de cafe
+			nombres.add(this.nombre); //Un invento raro para almacenar los nombres en el ArrayList
 			fichero.newLine();
 	
 			System.out.print("Introduzca Precio Cafe: "); //Introducimos el precio del cafe
@@ -49,7 +54,7 @@ public class Cafe {
 		System.out.println("Desea introducir Lotes de Cafe "); //Preguntamos al usuario si quiere introducir lotes de cafe
 		System.out.print("Si | No: ");
 		
-			this.loteCafe.introduceLote();
+			loteCafe.introduceLote(); //Ejecutamos el metodo introduce cafe de la clase Lote
 		
 		System.out.println("Fin de al introducción de datos \n"); //El programa nos avisa que hemos terminado de introducir los datos
 		fichero.write("0"); //Escribimos una marca de final de registro con un "0" 
@@ -65,8 +70,6 @@ public class Cafe {
 		
 		fichero.close();//Cierra el fichero
 		
-		AplicacionCafe aplicacion = new AplicacionCafe();
-		
 		aplicacion.menu();
 		
 		} catch (Exception e){
@@ -74,5 +77,5 @@ public class Cafe {
 		}
 
 	}
-
+	
 }
