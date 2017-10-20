@@ -46,25 +46,28 @@ public class Cafe {
 			fichero.write(entrada.readLine());
 			fichero.newLine();
 
-		System.out.println("Desea introducir Lotes de Cafe: "); //Preguntamos al usuario si quiere introducir lotes de cafe
+		System.out.println("Desea introducir Lotes de Cafe "); //Preguntamos al usuario si quiere introducir lotes de cafe
 		System.out.print("Si | No: ");
 		
 			this.loteCafe.introduceLote();
 		
-		System.out.println("Fin de al introducción de datos"); //El programa nos avisa que hemos terminado de introducir los datos
+		System.out.println("Fin de al introducción de datos \n"); //El programa nos avisa que hemos terminado de introducir los datos
 		fichero.write("0"); //Escribimos una marca de final de registro con un "0" 
 		fichero.newLine();
 
-		System.out.println("Desea introducir un nuevo registro de Cafe: "); //Preguntamos si quiere introducir un nuevo registro
+		System.out.println("Desea introducir un nuevo registro de Cafe "); //Preguntamos si quiere introducir un nuevo registro
 		System.out.print("Si | No: ");
 		
 		} while (entrada.readLine().trim().toLowerCase().equals("si"));
 		
-		
 
-		System.out.println("Fin del Programa"); //Nos avisa que el programa a finalizado
+		System.out.println("Desea realizar otra operación \n"); //Nos avisa que el programa a finalizado
 		
 		fichero.close();//Cierra el fichero
+		
+		AplicacionCafe aplicacion = new AplicacionCafe();
+		
+		aplicacion.menu();
 		
 		} catch (Exception e){
 			e.getMessage();

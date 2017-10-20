@@ -6,7 +6,7 @@ package gestioncafes;
 import java.util.Scanner;
 
 /**
- * @author usuario
+ * @author Jesús Manuel Ruiz Verdejo
  *
  */
 public class AplicacionCafe {
@@ -16,6 +16,13 @@ public class AplicacionCafe {
 	 */
 
 	public static void main(String[] args) {
+		
+		AplicacionCafe aplicacion = new AplicacionCafe();
+		aplicacion.menu();
+
+	}
+
+	public void menu() {
 
 		System.out.println("+++++++++++++++++++++++++++++");
 		System.out.println("Terminal de Gestión de Cafés");
@@ -25,7 +32,7 @@ public class AplicacionCafe {
 		System.out.println("2.- Control de Inventario");
 		System.out.println("3.- Venta Café");
 		System.out.println("4.- Salir \n");
-		System.out.print("Introduzca la opción: ");
+		System.out.print("Introduzca la opción: \n");
 
 		Scanner entrada = new Scanner(System.in);
 		int seleccion = entrada.nextInt();
@@ -43,23 +50,17 @@ public class AplicacionCafe {
 
 			case 3:
 
-				System.out.println("Fin del programa");
+				System.out.println("Fin del programa \n");
 				System.exit(0);
 
 			default:
 
-				System.out.println("Debe elegir una opción");
+				System.out.println("Debe elegir una opción \n");
 
 				break;
 			}
+			break;
 		}
-		System.out.println("Desea realizar otra operación");
-		
-		System.out.println("1.- Introduzca Café");
-		System.out.println("2.- Control de Inventario");
-		System.out.println("3.- Venta Café");
-		System.out.println("4.- Salir \n");
-		System.out.print("Introduzca la opción: ");
 
 	}
 

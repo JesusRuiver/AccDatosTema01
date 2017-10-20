@@ -28,15 +28,15 @@ public class Lote {
 
 		while (entradaLote.readLine().trim().toLowerCase().equals("si")) { // Si la respuesta es "si" el usuario comienza a introducir el primer lote
 
-			System.out.print("Introduzca Kilos Lote Cafe: ");
+			System.out.print("Introduzca Kilos Lote Cafe: \n");
 			fichero.write(entrada.readLine());
 			fichero.newLine();
 
-			System.out.print("Introduzca Caducidad Lote Cafe: ");
+			System.out.print("Introduzca Caducidad Lote Cafe: \n");
 			fichero.write(entrada.readLine());
 			fichero.newLine();
 
-			System.out.println("Desea introducir un nuevo Lote: "); //Preguntamos si desea introducir un nuevo lote
+			System.out.println("Desea introducir un nuevo Lote: \n"); //Preguntamos si desea introducir un nuevo lote
 			System.out.print("Si | No: ");
 		}
 		
