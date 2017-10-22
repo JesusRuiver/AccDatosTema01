@@ -38,7 +38,7 @@ public class Lote {
 
 	public void introduceLote() {
 
-		System.out.println("Desea introducir un Lote: "); 
+		System.out.println("Desea introducir un Lote: ");
 		System.out.print("Si | No: ");
 
 		while (entradaLote.nextLine().trim().toLowerCase().equals("si")) {
@@ -52,7 +52,7 @@ public class Lote {
 
 			lotes.add(new Lote(getKilos(), getCaducidad()));
 
-			System.out.println("Desea introducir un nuevo Lote: "); 
+			System.out.println("Desea introducir un nuevo Lote: ");
 			System.out.print("Si | No: ");
 
 		}
@@ -62,11 +62,6 @@ public class Lote {
 			System.out.println(e.getKilos() + " " + e.getCaducidad());
 		}
 
-	}
-
-	public void getLotes(){
-		
-		lotes.
 	}
 
 }
