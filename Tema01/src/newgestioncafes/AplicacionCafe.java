@@ -73,7 +73,7 @@ public class AplicacionCafe {
 
 				break;
 			}
-			break;
+			System.exit(0);
 		}
 
 	}

@@ -15,11 +15,19 @@ public class Cafe extends Lote {
 
 	private String nombre;
 	private double precio;
-
+	
+	private String lotes;
+	
 	private double stock;
 	private Scanner entradaCafe = new Scanner(System.in);
 	private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
 
+	public Cafe(String nombre, double precio) {
+
+		this.nombre = nombre;
+		this.precio = precio;
+	}	
+	
 	public Cafe(String nombre, double precio, double kilos, String caducidad) {
 
 		super(kilos, caducidad);
@@ -63,10 +71,14 @@ public class Cafe extends Lote {
 
 		System.out.print("Introduzca Precio Cafe: ");
 		this.precio = Double.parseDouble(entradaCafe.nextLine());
-
+		
+		cafes.add(new Cafe(getNombre(), getPrecio()));
+				
 		introduceLote();
-
-		cafes.add(new Cafe(getNombre(), getPrecio(), getKilos(), getCaducidad()));
+		
+		muestraCafes();
+		
+		muestraLotes();
 
 	}
 
@@ -74,7 +86,7 @@ public class Cafe extends Lote {
 
 		for (Cafe c : cafes) {
 
-			System.out.println(c.getNombre() + "\n" + c.getPrecio() + "\n" + c.getKilos() + "\n" + c.getCaducidad());
+			System.out.println(c.getNombre() + "\n" + c.getPrecio());
 		}
 
 	}

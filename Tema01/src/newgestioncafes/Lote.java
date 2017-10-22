@@ -63,7 +63,7 @@ public class Lote {
 
 		for (Lote e : lotes) {
 
-			System.out.println(e.getKilos() + " " + e.getCaducidad());
+			System.out.println(e.getKilos() + " \n" + e.getCaducidad());
 		}
 	}
 
