@@ -11,25 +11,25 @@ import newgestioncafes.Lote;
  * @author JesúsRuiver
  *
  */
-public class Cafe extends Lote{
+public class Cafe extends Lote {
 
 	private String nombre;
 	private double precio;
-	
+
 	private double stock;
 	private Scanner entradaCafe = new Scanner(System.in);
-	private ArrayList <Cafe> cafes = new ArrayList<Cafe>();
+	private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
 
 	public Cafe(String nombre, double precio, double kilos, String caducidad) {
-		
+
 		super(kilos, caducidad);
 		this.nombre = nombre;
 		this.precio = precio;
-		
+
 	}
-	
-	public Cafe(){
-		
+
+	public Cafe() {
+
 	}
 
 	public String getNombre() {
@@ -65,13 +65,18 @@ public class Cafe extends Lote{
 		this.precio = Double.parseDouble(entradaCafe.nextLine());
 
 		introduceLote();
-		
-		cafes.add(new Cafe(getNombre(),getPrecio(), getKilos(), getCaducidad()));
-		
+
+		cafes.add(new Cafe(getNombre(), getPrecio(), getKilos(), getCaducidad()));
+
+	}
+
+	public void muestraCafes() {
+
 		for (Cafe c : cafes) {
 
-			System.out.println(c.getNombre()+ "\n" + c.getPrecio()+ "\n" + c.getKilos() + "\n" + c.getCaducidad());
+			System.out.println(c.getNombre() + "\n" + c.getPrecio() + "\n" + c.getKilos() + "\n" + c.getCaducidad());
 		}
+
 	}
 
 }

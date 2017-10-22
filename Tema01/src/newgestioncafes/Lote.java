@@ -57,11 +57,14 @@ public class Lote {
 
 		}
 
+	}
+
+	public void muestraLotes() {
+
 		for (Lote e : lotes) {
 
 			System.out.println(e.getKilos() + " " + e.getCaducidad());
 		}
-
 	}
 
 }
