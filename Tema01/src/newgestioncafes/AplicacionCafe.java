@@ -87,7 +87,7 @@ public class AplicacionCafe {
 							
 							for (Lote lote : cafe.getLotes()){
 								
-								
+								 
 							}
 							
 							
@@ -122,7 +122,9 @@ public class AplicacionCafe {
 	}
 
 	public void escribirCafes(File fichero) {
+		
 		try {
+			
 			fichero.delete();
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fichero));
 
@@ -138,6 +140,7 @@ public class AplicacionCafe {
 					bw.write(lote.getCaducidad());
 					bw.newLine();
 				}
+				
 				bw.write("0");
 				bw.newLine();
 			}
@@ -146,8 +149,8 @@ public class AplicacionCafe {
 
 		} catch (FileNotFoundException fn) {
 			System.out.println("No se encuentra el fichero");
-		} catch (IOException io) {
-			System.out.println("Error de E/S ");
+		} catch (IOException e) {
+			e.getMessage();
 		}
 	}
 
@@ -227,15 +230,18 @@ public class AplicacionCafe {
 	}
 
 	public void muestraCafes() {
+		
+		System.out.println("\t** INVENTARIO DE CAFES **");
+		
 		for (Cafe cafe : cafes) {
-
-			System.out.println(cafe.getNombre());
-			System.out.println(cafe.getPrecio());
+		
+			System.out.println(cafe.getNombre() + " a " + cafe.getPrecio() + " euros/kg");
 
 			for (Lote lote : cafe.getLotes()) {
-
-				System.out.println(lote.getKilos());
-				System.out.println(lote.getCaducidad());
+				
+				System.out.print("\t" + lote.getCaducidad() + ":");
+				System.out.print(lote.getKilos() + "kg \n" );
+				
 			}
 		}
 	}
