@@ -5,8 +5,10 @@ package newgestioncafestexto;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,10 +39,12 @@ public class AplicacionCafe {
 		File fichero = new File("MisCafes.txt");
 
 		while (true) {
-			cafes.clear(); //Vacia Cafes
-			
-			leerCafes(fichero); //Llena cafes
 
+			cafes.clear(); // Vacia Cafes
+
+			leerCafes(fichero); // Llena cafes
+
+			System.out.println("\n");
 			System.out.println("+++++++++++++++++++++++++++++");
 			System.out.println("Terminal de Gestión de Cafés");
 			System.out.println("+++++++++++++++++++++++++++++\n");
@@ -48,7 +52,9 @@ public class AplicacionCafe {
 			System.out.println("1.- Introduzca Café");
 			System.out.println("2.- Control de Inventario");
 			System.out.println("3.- Venta Café");
-			System.out.println("4.- Salir \n");
+			System.out.println("4.- Exportar");
+			System.out.println("5.- Importar");
+			System.out.println("6.- Salir \n");
 			System.out.print("Introduzca la opción: ");
 
 			int seleccion = entrada.nextInt();
@@ -62,48 +68,55 @@ public class AplicacionCafe {
 
 			case 2:
 
-				muestraCafes();
+				inventarioCafes();
 
 				break;
+
 			case 3:
-				
+
 				System.out.print("Que café desea comprar: ");
 				String nombre = entrada.next().trim().toUpperCase();
-				
+
 				System.out.print("Que catidad: ");
 				double cantidad = entrada.nextDouble();
-				
-				for (Cafe cafe : cafes){
-					
-					if (nombre == cafe.getNombre()){
-						
+
+				for (Cafe cafe : cafes) {
+
+					if (nombre == cafe.getNombre()) {
+
 						double stockTotal = 0;
-						
-						for (Lote lote : cafe.getLotes()){
-							 stockTotal += lote.getKilos();
+
+						for (Lote lote : cafe.getLotes()) {
+							stockTotal += lote.getKilos();
 						}
-						
-						if (cantidad <= stockTotal){
-							
-							for (Lote lote : cafe.getLotes()){
-								
-								 
+
+						if (cantidad <= stockTotal) {
+
+							for (Lote lote : cafe.getLotes()) {
+
 							}
-							
-							
-						}else{
+
+						} else {
 							System.out.println("No hay suficiente stock");
 						}
 						break;
 					}
-					
+
 				}
-				
-				
 
 				break;
 
 			case 4:
+
+				escribirFicheroDat();
+
+				break;
+
+			case 5:
+
+				break;
+
+			case 6:
 
 				System.out.println("Fin del programa \n");
 				System.exit(0);
@@ -117,16 +130,44 @@ public class AplicacionCafe {
 				break;
 			}
 
-			escribirCafes(fichero);
+			escribirFicheroMisCafes(fichero);
 		}
 	}
 
-	public void escribirCafes(File fichero) {
-		
+	public void escribirFicheroDat() {
 		try {
-			
+
+			File ficheroCafesDat = new File("MisCafes.dat");
+			FileOutputStream flujoDatos = new FileOutputStream(ficheroCafesDat);
+			DataOutputStream escribeDatos = new DataOutputStream(flujoDatos);
+
+			for (Cafe cafe : cafes) {
+
+				escribeDatos.writeUTF(cafe.getNombre());
+				escribeDatos.writeDouble(cafe.getPrecio());
+
+				for (Lote lote : cafe.getLotes()) {
+
+					escribeDatos.writeDouble(lote.getKilos());
+					escribeDatos.writeUTF(lote.getCaducidad());
+				}
+
+				escribeDatos.writeUTF("0");
+			}
+
+			escribeDatos.close();
+		} catch (Exception e) {
+
+			e.getStackTrace();
+		}
+	}
+
+	public void escribirFicheroMisCafes(File fichero) {
+
+		try {
+
 			fichero.delete();
-			BufferedWriter bw = new BufferedWriter(new FileWriter(fichero));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fichero, true));
 
 			for (Cafe cafe : cafes) {
 
@@ -140,7 +181,7 @@ public class AplicacionCafe {
 					bw.write(lote.getCaducidad());
 					bw.newLine();
 				}
-				
+
 				bw.write("0");
 				bw.newLine();
 			}
@@ -162,20 +203,20 @@ public class AplicacionCafe {
 
 		for (int i = 0; i < lineas.size();) {
 			// Variable nombre
-			String nombre = lineas.get(i);
+			String lineaNombre = lineas.get(i);
 			i++;
 			// Variable precio
-			double precio = Double.parseDouble(lineas.get(i));
+			double lineaPrecio = Double.parseDouble(lineas.get(i));
 			i++;
 			// Variable ArrayList
 			ArrayList<Lote> lotes = new ArrayList<Lote>();
 			while (true) {
-				String lineaTres = lineas.get(i);
-				if (lineaTres.equals("0")) {
+				String lineaLotes = lineas.get(i);
+				if (lineaLotes.equals("0")) {
 					i++;
 					break;
 				} else {
-					double kilos = Double.parseDouble(lineaTres);
+					double kilos = Double.parseDouble(lineaLotes);
 					i++;
 					String caducidad = lineas.get(i);
 					i++;
@@ -183,7 +224,7 @@ public class AplicacionCafe {
 					lotes.add(lote);
 				}
 			}
-			Cafe cafe = new Cafe(nombre, precio, lotes);
+			Cafe cafe = new Cafe(lineaNombre, lineaPrecio, lotes);
 			boolean existe = false;
 			for (Cafe cafeAntiguo : cafes) {
 				if (cafeAntiguo.getNombre() == cafe.getNombre()) {
@@ -213,37 +254,44 @@ public class AplicacionCafe {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} finally {
 			if (null != fr)
 				try {
 					fr.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 		}
 	}
 
-	public void muestraCafes() {
-		
+	public void inventarioCafes() {
+
 		System.out.println("\t** INVENTARIO DE CAFES **");
-		
+
 		for (Cafe cafe : cafes) {
-		
+
 			System.out.println(cafe.getNombre() + " a " + cafe.getPrecio() + " euros/kg");
 
 			for (Lote lote : cafe.getLotes()) {
-				
+
 				System.out.print("\t" + lote.getCaducidad() + ":");
-				System.out.print(lote.getKilos() + "kg \n" );
-				
+				System.out.print(lote.getKilos() + "kg \n");
+			}
+
+			for (Lote lote : cafe.getLotes()) {
+
+				double stockTotal = lote.getKilos();
+
+				System.out.println("Stock Total: " + stockTotal);
 			}
 		}
+
 	}
 
 	public void introducirCafe(Scanner entrada) {
@@ -252,7 +300,7 @@ public class AplicacionCafe {
 			String nombre = entrada.next().trim().toUpperCase();
 
 			System.out.print("Introduzca Precio Cafe: ");
-			double precio = entrada.nextDouble();
+			double precio = Double.parseDouble(entrada.next());
 
 			System.out.print("Quiere introducir Lote: ");
 			System.out.print("Si | No: ");
@@ -274,7 +322,7 @@ public class AplicacionCafe {
 
 			System.out.print("Introduzca Kilos Lote Cafe: \n");
 
-			Double kilos = entrada.nextDouble();
+			Double kilos = Double.parseDouble(entrada.next());
 
 			System.out.print("Introduzca caducidad Lote Cafe: \n");
 

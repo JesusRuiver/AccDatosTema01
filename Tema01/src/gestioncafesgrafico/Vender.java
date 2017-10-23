@@ -59,10 +59,10 @@ public class Vender extends JFrame {
 		
 		cboNombresCafes.addItem("Debe enseñar las lineas");
 		
-		for (Cafe cafe : VentanaPrincipal.){
+		//for (Cafe cafe : VentanaPrincipal.){
 			
-			cboNombresCafes.addItem(cafe.getNombre());
-		}
+			//cboNombresCafes.addItem(cafe.getNombre());
+		//}
 				
 				
 				
