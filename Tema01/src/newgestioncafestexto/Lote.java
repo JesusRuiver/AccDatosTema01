@@ -3,6 +3,10 @@ package newgestioncafestexto;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Jesús Manuel Ruiz Verdejo
+ *
+ */
 public class Lote {
 
 	private double kilos;

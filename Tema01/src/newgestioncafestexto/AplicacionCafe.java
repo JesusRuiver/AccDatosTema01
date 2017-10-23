@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author JesúsRuiver
+ * @author Jesús Manuel Ruiz Verdejo
  *
  */
 public class AplicacionCafe {
