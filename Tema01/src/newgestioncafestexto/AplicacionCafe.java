@@ -93,6 +93,8 @@ public class AplicacionCafe {
 						if (cantidad <= stockTotal) {
 
 							for (Lote lote : cafe.getLotes()) {
+								
+								
 
 							}
 
