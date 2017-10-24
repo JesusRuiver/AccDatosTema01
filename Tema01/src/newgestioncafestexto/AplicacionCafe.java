@@ -284,12 +284,14 @@ public class AplicacionCafe {
 				System.out.print(lote.getKilos() + "kg \n");
 			}
 
+			double stockTotal = 0;
+				
 			for (Lote lote : cafe.getLotes()) {
 
-				double stockTotal = lote.getKilos();
-
-				System.out.println("Stock Total: " + stockTotal);
+				 stockTotal += lote.getKilos();
+				
 			}
+			System.out.println("Stock Total: " + stockTotal);
 		}
 
 	}
