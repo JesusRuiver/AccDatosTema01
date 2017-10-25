@@ -26,6 +26,7 @@ public class AplicacionCafe {
 	 */
 
 	private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
+	private double stockTotal = 0;
 
 	public static void main(String[] args) {
 		AplicacionCafe aplicacion = new AplicacionCafe();
@@ -84,7 +85,7 @@ public class AplicacionCafe {
 
 					if (nombre == cafe.getNombre()) {
 
-						double stockTotal = 0;
+						this.stockTotal = 0;
 
 						for (Lote lote : cafe.getLotes()) {
 							stockTotal += lote.getKilos();
@@ -286,7 +287,7 @@ public class AplicacionCafe {
 				System.out.print(lote.getKilos() + "kg \n");
 			}
 
-			double stockTotal = 0;
+			this.stockTotal = 0;
 				
 			for (Lote lote : cafe.getLotes()) {
 

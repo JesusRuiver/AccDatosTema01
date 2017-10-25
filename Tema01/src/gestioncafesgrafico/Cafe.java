@@ -6,7 +6,7 @@ package gestioncafesgrafico;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import newgestioncafestexto.Lote;
+import gestioncafesgrafico.Lote;
 
 /**
  * @author Jesús Manuel Ruiz Verdejo
@@ -16,7 +16,7 @@ public class Cafe {
 
 	private String nombre;
 	private double precio;
-	private ArrayList<Lote> lotes = new ArrayList<>();
+	private ArrayList<Lote> lotes = new ArrayList<Lote>();
 
 	public Cafe(String nombre, double precio, ArrayList lotes) {
 

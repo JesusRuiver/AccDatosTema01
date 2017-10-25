@@ -11,6 +11,7 @@ import org.omg.CORBA.VersionSpecHelper;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -18,6 +19,8 @@ public class VentanaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
+	private VerStock v;
+	
 
 	/**
 	 * Launch the application.
@@ -39,6 +42,10 @@ public class VentanaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		
+		AplicacionCafe aplicacion = new AplicacionCafe();
+		aplicacion.leerCafes(new File ("MisCafes.txt"));
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 258, 382);
@@ -71,7 +78,8 @@ public class VentanaPrincipal extends JFrame {
 		btnInventario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				VerStock v = new VerStock();
+				if (v == null)
+				v = new VerStock();
 				
 				v.setVisible(true);
 			}
