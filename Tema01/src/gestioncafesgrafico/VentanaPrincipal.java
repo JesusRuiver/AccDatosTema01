@@ -18,8 +18,8 @@ import java.awt.event.ActionEvent;
 public class VentanaPrincipal extends JFrame {
 
 	private JPanel contentPane;
-	private ArrayList<Cafe> cafes = new ArrayList<Cafe>();
 	private VerStock v;
+	private AñadirCafe vAñadirCafe;
 	
 
 	/**
@@ -54,9 +54,6 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnAñadeCafe = new JButton("A\u00F1adir");
-		btnAñadeCafe.setBounds(55, 37, 148, 23);
-		contentPane.add(btnAñadeCafe);
 
 		JButton btnInventario = new JButton("Ver Stock");
 
@@ -72,6 +69,7 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(btnExportar);
 
 		JButton btnImportar = new JButton("Importar");
+		
 		btnImportar.setBounds(55, 257, 148, 23);
 		contentPane.add(btnImportar);
 
@@ -82,6 +80,21 @@ public class VentanaPrincipal extends JFrame {
 				v = new VerStock();
 				
 				v.setVisible(true);
+			}
+		});
+		
+		JButton btnAñadeCafe = new JButton("A\u00F1adir");
+		
+		btnAñadeCafe.setBounds(55, 37, 148, 23);
+		contentPane.add(btnAñadeCafe);
+		
+		
+		btnAñadeCafe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				vAñadirCafe = new AñadirCafe();
+				
+				vAñadirCafe.setVisible(true);
 			}
 		});
 	}

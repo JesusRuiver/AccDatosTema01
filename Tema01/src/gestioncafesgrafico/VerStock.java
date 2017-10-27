@@ -50,6 +50,7 @@ public class VerStock extends JFrame {
 		contentPane.add(txtStock, BorderLayout.CENTER);
 		
 		JButton button = new JButton("Ver Stock");
+		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
